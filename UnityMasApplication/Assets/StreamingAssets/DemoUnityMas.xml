@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Area name="EolienneArea">
+  <Model url="DemoUnityMas.xmi" xmi2="true"/>
+
+  <Viewpoint name="Camera1" area = "Eolienne">
+    <Position x="0" y="0" z="0" />
+    <Orientation roll="0" pitch="0" yaw="0" />
+  </Viewpoint>
+
+  
+  <Entity name="toolbox" class="Box">
+   <Shape url = "toolbox"/>
+   </Entity>
+  <!-- VideoAccrochLV -->
+
+  <Human name="tech1" class="TechnicienMaintenance" area="TEST">
+    <Shape url = "tech1" />
+    <Behavior name ="SimpleCommunicationBehavior" start = "true" interval="0.2"/>
+    <Behavior name ="ProceduralBehavior" start = "true" interval="0.2"/>
+    
+  </Human>
+  <Human name="tech2" class="TechnicienMaintenance" area="TEST">
+    <Shape url = "tech2" />
+    <Behavior name ="SimpleCommunicationBehavior" start = "true" interval="0.2"/>
+    <Behavior name ="ProceduralBehavior" start = "true" interval="0.2"/>
+
+  </Human>
+  <!-- Organisations -->
+  <Organisation name ="Pedagogique">
+    <Structure>MaintenanceTeam</Structure>
+    <!--<Affect type = "Role">
+      			<Role>Apprenant</Role>
+         		<AID>
+            			<Name>Technicien</Name>
+            			<Plateform>localhost</Plateform>
+            			<Port>8080</Port>
+         		</AID>
+    		</Affect>-->
+    <Affect type = "Role">
+      <Role>Technicien</Role>
+      <AID>
+        <Name>tech1</Name>
+        <Plateform>localhost</Plateform>
+        <Port>8080</Port>
+      </AID>
+    </Affect>
+    <Affect type = "Role">
+      <Role>Mechanic</Role>
+      <AID>
+        <Name>tech2</Name>
+        <Plateform>localhost</Plateform>
+        <Port>8080</Port>
+      </AID>
+    </Affect>
+    <Affect type = "Ressource">
+      <Ressource>toolbox</Ressource>
+      <Entity>toolbox</Entity>
+    </Affect>
+
+  </Organisation>
+
+</Area>

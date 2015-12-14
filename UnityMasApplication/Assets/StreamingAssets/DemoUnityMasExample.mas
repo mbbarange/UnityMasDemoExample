@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Application>
+    <Environment url="DemoUnityMas.xml" />
+
+    <ApplicationParameters>
+        <HTTP RessourceDir="HTTPServerBaseDir/" />
+        <Plugins PluginsDir=".">
+            <Plugin Name="plugins" />
+	    <Plugin Name="pluginPeda" />
+        </Plugins>
+    </ApplicationParameters>
+
+    <Peripherics>
+        <Peripheric name="keyboard">
+            <ButtonAxis name="X">
+                <Button peripheric="keyboard" button="Up" pressed="true" value="1" />
+                <Button peripheric="keyboard" button="Up" pressed="false" value="0" />
+                <Button peripheric="keyboard" button="Down" pressed="true" value="-1" />
+                <Button peripheric="keyboard" button="Down" pressed="false" value="0" />
+            </ButtonAxis>
+            <ButtonAxis name="Y">
+                <Button peripheric="keyboard" button="Left" pressed="true" value="1" />
+                <Button peripheric="keyboard" button="Left" pressed="false" value="0" />
+                <Button peripheric="keyboard" button="Right" pressed="true" value="-1" />
+                <Button peripheric="keyboard" button="Right" pressed="false" value="0" />
+            </ButtonAxis>
+            <ButtonAxis name="Z">
+                <Button peripheric="keyboard" button="q" pressed="true" value="1" />
+                <Button peripheric="keyboard" button="q" pressed="false" value="0" />
+                <Button peripheric="keyboard" button="w" pressed="true" value="-1" />
+                <Button peripheric="keyboard" button="w" pressed="false" value="0" />
+            </ButtonAxis>
+            <ButtonAxis name="RY">
+                <Button peripheric="keyboard" button="a" pressed="true" value="-1" />
+                <Button peripheric="keyboard" button="a" pressed="false" value="0" />
+                <Button peripheric="keyboard" button="z" pressed="true" value="1" />
+                <Button peripheric="keyboard" button="z" pressed="false" value="0" />
+            </ButtonAxis>
+            <ButtonAxis name="RZ">
+                <Button peripheric="keyboard" button="s" pressed="true" value="-1" />
+                <Button peripheric="keyboard" button="s" pressed="false" value="0" />
+                <Button peripheric="keyboard" button="x" pressed="true" value="1" />
+                <Button peripheric="keyboard" button="x" pressed="false" value="0" />
+            </ButtonAxis>
+        </Peripheric>
+    </Peripherics>
+
+    <Interactions>
+        <SendSignal name="Ouvre" peripheric="mouse" button="button1" pressed="true" target="designated"/>
+        <SendSignal name="Ferme" peripheric="mouse" button="button3" pressed="true" target="designated"/>
+        <SendSignal name="Red"   peripheric="mouse" button="button1" pressed="true" target="designated"/>
+        <SendSignal name="Green" peripheric="mouse" button="button3" pressed="true" target="designated"/>
+        <!--<CallProcedure name="ScenarioT" organisation = "Pedagogique" peripheric="keyboard" button="T" pressed="true" target="null"/>
+        <CallProcedure name="EntreeSAS" organisation = "Pedagogique" peripheric="keyboard" button="E" pressed="true" target="null"/> -->
+        <CallProcedure name="EntreeSASInteractif" organisation = "Pedagogique" peripheric="keyboard" button="I" pressed="true" target="null"/>
+
+
+    </Interactions>
+
+    <Navigation type="camera" mode="free">
+        <TX peripheric="keyboard" axis="X" speed="0.1" />
+        <TY peripheric="keyboard" axis="Y" speed="0.1" />
+        <TZ peripheric="keyboard" axis="Z" speed="0.1" />
+        <Pitch peripheric="keyboard" axis="RY" speed="-0.1" />
+        <Yaw peripheric="keyboard" axis="RZ" speed="0.1" />
+    </Navigation>
+
+
+    <Scene name="scene">
+	<Area name = "PriseArea" />
+    </Scene>
+
+    <Renderer near="0.1" far="1000" fieldOfView="45">
+        <Window x="0" y="0" width="1024" height="768" />
+        <Scene name="scene" viewpoint="Camera1" />
+    </Renderer>
+</Application>
